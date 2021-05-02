@@ -1,0 +1,4 @@
+{
+    "host": "https://directory-service-server.herokuapp.com",
+    "port": 433
+}
