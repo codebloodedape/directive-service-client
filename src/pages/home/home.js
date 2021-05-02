@@ -248,7 +248,7 @@ class HomePage extends React.Component {
                     <div className='item' onClick={() => this.itemClicked(item)}>
                         <div className='itemText'>{item.name}</div>
                         {
-                            (item.id !== 'root') ? <div className='deleteButton' onClick={(e) => { e.stopPropagation(); this.deleteItemClicked(item) }}>Delete</div> : ''
+                            (item.id !== 'root') ? <div className='deleteButton' onClick={(e) => { e.stopPropagation(); this.deleteItemClicked(item) }}></div> : ''
                         }
                     </div>
                 )
@@ -265,8 +265,8 @@ class HomePage extends React.Component {
                 <div className='addItemSection'>
                     <input ref={this.newItemTextField} className='addItemTextField' type='text' onFocus={(event) => event.target.select()}
                         value={this.state.newItemName} onChange={this.onNewItemNameChange} />
-                    <div className='addItemSaveButton' onClick={this.addItemSaveClicked}>Save</div>
-                    <div className='addItemCancelButton' onClick={this.addItemCancelClicked}>Cancel</div>
+                    <div className='addItemSaveButton' onClick={this.addItemSaveClicked}></div>
+                    <div className='addItemCancelButton' onClick={this.addItemCancelClicked}></div>
                 </div>
             )
         }
@@ -277,8 +277,8 @@ class HomePage extends React.Component {
             <div className='pageContent'>
                 <div className='header'>
                     <div className='headerLeftButtons'>
-                    <div className='backButton' onClick={this.backClicked}>Back</div>
-                    <div className='backButton' onClick={this.rootClicked}>Root</div>
+                    <div className='backButton' onClick={this.backClicked}></div>
+                    <div className='rootButton' onClick={this.rootClicked}></div>
                     </div>
                     <div className='headerText'>{this.state.selectedFolder.name}</div>
                 </div>

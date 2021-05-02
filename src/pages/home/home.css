@@ -42,7 +42,6 @@
 
 .item {
     font-size: 2em;
-    font-weight: bold;
     padding: 10px 20px;
     border-radius: 3px;
     width: 70%;
@@ -51,6 +50,8 @@
     box-shadow: 0px 0px 3px #1e9a21 inset;
     text-align: left;
     display: flex;
+    /* justify-content: center; */
+    align-items: center; 
 }
 
 .item:hover {
@@ -58,7 +59,7 @@
 }
 
 .itemText {
-    width: 80%;
+    width: 90%;
     overflow: auto;
 }
 
@@ -71,27 +72,36 @@
     width: fit-content;
     padding: 10px 20px;
     border-radius: 3px;
-    border: 1px solid;
     cursor: pointer;
+    background: #1a711b;
+    color: #8ebd8f;
+}
+
+.addButton:hover {
+
 }
 
 .backButton {
-    width: fit-content;
-    padding: 5px 10px;
-    border-radius: 3px;
-    border: 1px solid;
+    margin: 0 5px;
     cursor: pointer;
-    height: fit-content;
-    margin: 0px 5px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-image: url('../../images/back.png');
 }
 
-.addButton:hover, .backButton:hover {
-    background: #77a778;
+.rootButton {
+    cursor: pointer;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-image: url('../../images/root.png');
 }
 
 .addItemSection {
     font-size: 2em;
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 10px 20px;
     border-radius: 3px;
     width: 70%;
@@ -100,6 +110,8 @@
     box-shadow: 0px 0px 3px #1e9a21 inset;
     text-align: left;
     display: flex;
+    /* justify-content: center; */
+    align-items: center; 
 }
 
 .addItemTextField {
@@ -115,7 +127,34 @@
     caret-color: #219a20;
 }
 
-.addItemSaveButton, .addItemCancelButton, .deleteButton {
+.addItemSaveButton {
+    cursor: pointer;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-image: url('../../images/save.png');
+}
+
+.addItemCancelButton {
+    cursor: pointer;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-image: url('../../images/cancel.png');
+}
+
+.deleteButton {
+    cursor: pointer;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    background-size: 100%;
+    background-image: url('../../images/delete.png');
+}
+
+/* .addItemSaveButton, .addItemCancelButton, .deleteButton {
     width: fit-content;
     padding: 5px 10px;
     border-radius: 3px;
@@ -130,7 +169,7 @@
 
 .addItemSaveButton:hover, .addItemCancelButton:hover, .deleteButton:hover {
     background: #77a778;
-}
+} */
 
 ::selection {
     /* color: red; */
