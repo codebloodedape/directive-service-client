@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/directive-service-client/static/css/main.78cd262f.chunk.css",
+    "main.js": "/directive-service-client/static/js/main.7444ab97.chunk.js",
+    "main.js.map": "/directive-service-client/static/js/main.7444ab97.chunk.js.map",
+    "runtime-main.js": "/directive-service-client/static/js/runtime-main.0159a31a.js",
+    "runtime-main.js.map": "/directive-service-client/static/js/runtime-main.0159a31a.js.map",
+    "static/js/2.fa069de7.chunk.js": "/directive-service-client/static/js/2.fa069de7.chunk.js",
+    "static/js/2.fa069de7.chunk.js.map": "/directive-service-client/static/js/2.fa069de7.chunk.js.map",
+    "static/js/3.f9b7d076.chunk.js": "/directive-service-client/static/js/3.f9b7d076.chunk.js",
+    "static/js/3.f9b7d076.chunk.js.map": "/directive-service-client/static/js/3.f9b7d076.chunk.js.map",
+    "index.html": "/directive-service-client/index.html",
+    "static/css/main.78cd262f.chunk.css.map": "/directive-service-client/static/css/main.78cd262f.chunk.css.map",
+    "static/js/2.fa069de7.chunk.js.LICENSE.txt": "/directive-service-client/static/js/2.fa069de7.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/directive-service-client/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0159a31a.js",
+    "static/js/2.fa069de7.chunk.js",
+    "static/css/main.78cd262f.chunk.css",
+    "static/js/main.7444ab97.chunk.js"
+  ]
+}
