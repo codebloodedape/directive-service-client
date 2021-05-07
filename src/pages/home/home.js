@@ -18,14 +18,19 @@ class HomePage extends React.Component {
             selectedNodeId: '',
             addItemSelected: false,
             newItemName: 'New Folder',
-            token: ''
+            token: '',
+            isLoading: false
             // lastNodeId: ''
         }
     }
 
     componentDidMount() {
-        this.authenticate()
-        this.newItemTextField = React.createRef();
+        this.setState({
+            isLoading: true
+        }, () => {
+            this.authenticate()
+            this.newItemTextField = React.createRef()
+        })
         // this.getData()
     }
 
@@ -59,7 +64,8 @@ class HomePage extends React.Component {
                 res => {
                     this.setState({
                         token: res.token,
-                        selectedNodeId: 'root'
+                        selectedNodeId: 'root',
+                        isLoading: false
                     }, () => {
                         this.getData()
                     })
@@ -82,51 +88,56 @@ class HomePage extends React.Component {
     }
 
     getData = () => {
-        fetch(URL_BASE + '/folder/' + this.state.selectedNodeId, {
-            method: 'GET',
-            // body: JSON.stringify({
-            //     "token": this.state.token
-            // }),
-            headers: {
-                'token': this.state.token
-            },
-            // headers: {
-            //     'Content-Type': 'application/json'
-            // },
-        })
-            .then(res => {
-                if (!res.ok) {
-                    // TODO make this condition only for response code 403
-                    this.authenticate()
-                    return null
-                }
-                else {
-                    return res.json()
-                }
+        this.setState({
+            isLoading: true
+        }, () => {
+            fetch(URL_BASE + '/folder/' + this.state.selectedNodeId, {
+                method: 'GET',
+                // body: JSON.stringify({
+                //     "token": this.state.token
+                // }),
+                headers: {
+                    'token': this.state.token
+                },
+                // headers: {
+                //     'Content-Type': 'application/json'
+                // },
             })
-            // .then(res => res.json())
-            .then(
-                res => {
-
-                    // res = res.json()
-                    if (res) {
-                        // const children = res.children
-                        const selectedFolder = {
-                            id: res.id,
-                            name: res.name,
-                            children: res.children.map(child => {
-                                return {
-                                    id: child.id,
-                                    name: child.name
-                                }
-                            })
-                        }
-                        this.setState({ selectedFolder })
+                .then(res => {
+                    if (!res.ok) {
+                        // TODO make this condition only for response code 403
+                        this.authenticate()
+                        return null
                     }
-                }
-            )
-        // .then(res => res.json())
-        // .catch()
+                    else {
+                        return res.json()
+                    }
+                })
+                // .then(res => res.json())
+                .then(
+                    res => {
+    
+                        // res = res.json()
+                        if (res) {
+                            // const children = res.children
+                            const selectedFolder = {
+                                id: res.id,
+                                name: res.name,
+                                children: res.children.map(child => {
+                                    return {
+                                        id: child.id,
+                                        name: child.name
+                                    }
+                                })
+                            }
+                            this.setState({ selectedFolder, isLoading: false })
+                        }
+                    }
+                )
+            // .then(res => res.json())
+            // .catch()
+        })
+        
     }
 
     itemClicked = (item) => {
@@ -241,7 +252,7 @@ class HomePage extends React.Component {
     render() {
         // console.log(this.state.items)
         let container = [] //'This folder is empty'
-        let body = 'This folder is empty'
+        let body = <div className='emptyMessage'>This folder is empty</div>
         if (this.state.selectedFolder.children.length > 0) {
             container = this.state.selectedFolder.children.map(item => {
                 return (
@@ -283,6 +294,7 @@ class HomePage extends React.Component {
                     <div className='headerText'>{this.state.selectedFolder.name}</div>
                 </div>
                 <div className='itemsContainer'>
+                    {this.state.isLoading && (<div className='loading'></div>)}
                     {body}
                 </div>
                 {addButton}
